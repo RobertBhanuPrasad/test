@@ -9,23 +9,16 @@
             [cheshire.core :as cheshire]))
 
 
-;; (defn bhanu [ctx]
-;;   (ui/page ctx [:div
-;;                 {:class "p-4 text-center rounded-lg hover:bg-gray-900 hover:text-white"}
-;;                 [:form
-;;                  [:div {:class "py-5"} "first name"]
-;;                  [:input]]
-;;                 "Hello world"]))
-
 (defn submit [ctx] 
+  (prn (:params ctx))
   {:status 200
-   :headers {"content-type" "text/plain"}
-   :body "HI"})
+   :headers {"content-type" "text/html"}
+   :body "<div>Hi</div>"})
 (defn bhanu [ctx]
   (ui/page ctx
            [:div
             {:class "p-4 text-center rounded-lg"}
-            (biff/form
+            [ :form
              {:action "/submit_form" :method "POST"}
                                ;; First Name
              [:div
@@ -54,7 +47,7 @@
                                ;; Submit button
              [:div
               [:button {:type " submit "
-                        :class " bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 "} " Submit "]])]))
+                        :class " bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 "} " Submit "]] ]]))
 
 
 (def module
